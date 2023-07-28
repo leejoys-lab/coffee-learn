@@ -1,0 +1,280 @@
+<html>
+  <head>
+    <title>커피런</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('components/head.html') -%>
+    <!-- Cutom CSS & JS -->
+    <link rel="stylesheet" href="/assets/css/main_tab.css" />
+    <link rel="stylesheet" href="/assets/css/cart/cart_modal.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <%- include('components/header.html') -%>
+    <div id="wrap">
+      <!-- SECTION: VISUAL -->
+      <section class="visual">
+        <div class="video-area">
+          <video id="video" muted autoplay loop>
+            <source src="/assets/img/video/main_visual.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="video-cover">
+          <div class="text">
+            <h2>커피런의 뛰어난 원두로<br />나만의 커피 취향을 발견해보세요</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- 원두 추천 -->
+      <section class="pick" id="pick">
+        <div class="inner">
+          <div class="side-nav">
+            <div class="title">
+              <h2>추천 원두 PICK!</h2>
+              <a href="/items/coffee" class="more">
+                <strong>더보기</strong>
+                <span class="material-icons">arrow_right_alt</span>
+              </a>
+            </div>
+            <!-- 맛 선택 -->
+            <div class="tab-box">
+              <label class="tab-label on">
+                <input type="radio" name="taste" data-taste="달콤 쌉싸름" checked />
+                <div class="tab tab--main">
+                  <div class="material-icons">radio_button_unchecked</div>
+                  <p>달콤 쌉싸름</p>
+                </div>
+              </label>
+              <label class="tab-label">
+                <input type="radio" name="taste" data-taste="고소함/구수함" />
+                <div class="tab tab--main">
+                  <div class="material-icons">radio_button_unchecked</div>
+                  <p>고소함, 구수함</p>
+                </div>
+              </label>
+              <label class="tab-label">
+                <input type="radio" name="taste" data-taste="묵직하고 달콤한 여운" />
+                <div class="tab tab--main">
+                  <div class="material-icons">radio_button_unchecked</div>
+                  <p>묵직하고 달콤한 여운</p>
+                </div>
+              </label>
+              <label class="tab-label">
+                <input type="radio" name="taste" data-taste="은은하고 편안함" />
+                <div class="tab tab--main">
+                  <div class="material-icons">radio_button_unchecked</div>
+                  <p>은은하고 편안함</p>
+                </div>
+              </label>
+              <label class="tab-label">
+                <input type="radio" name="taste" data-taste="상큼한 산미와 향" />
+                <div class="tab tab--main">
+                  <div class="material-icons">radio_button_unchecked</div>
+                  <p>상큼한 산미와 향</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="item-box" id="pickItemBox"></div>
+        </div>
+      </section>
+
+      <!-- 블렌드 커피만 모았어요! -->
+      <section class="blend" id="blend">
+        <div class="inner">
+          <div class="title">
+            <h2>블렌드 커피만 모았어요!</h2>
+          </div>
+          <div class="item-box" id="blendItemBox"></div>
+        </div>
+      </section>
+
+      <!-- 배너 -->
+      <section class="banner">
+        <div class="inner">
+          <a href="/items">
+            <h3>커피런에서 다양한 커피를 만나보세요</h3>
+            <div>
+              <p>전체 상품 보기</p>
+              <span class="material-icons">arrow_right_alt</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ORIGIN 나라별커피 -->
+      <section class="origins">
+        <div class="inner">
+          <div class="title">
+            <h2>나라별 풍미를 느껴보세요!</h2>
+            <!-- <a href="#">
+              <strong>더보기</strong>
+              <span class="material-icons">arrow_right_alt</span>
+            </a> -->
+          </div>
+          <ul class="origin-ul">
+            <li class="origin-list" id="africa-origin">
+              <div class="origin-img-wrap">
+                <div class="origin-img"></div>
+                <div class="text-wrap">
+                  <h3 class="origin">아프리카</h3>
+                </div>
+              </div>
+              <ul class="origin-items"></ul>
+            </li>
+            <li class="origin-list" id="asia-origin">
+              <div class="origin-img-wrap">
+                <div class="origin-img"></div>
+                <div class="text-wrap">
+                  <h3 class="origin">아시아/태평양</h3>
+                </div>
+              </div>
+              <ul class="origin-items"></ul>
+            </li>
+            <li class="origin-list" id="latin-america-origin">
+              <div class="origin-img-wrap">
+                <div class="origin-img"></div>
+                <div class="text-wrap">
+                  <h3 class="origin">중남미</h3>
+                </div>
+              </div>
+              <ul class="origin-items"></ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 선물세트 -->
+      <section class="gift">
+        <div class="swiper gift-swiper">
+          <h2>소중한 사람에게 선물하세요!</h2>
+          <a href="/items/giftset" class="gift-more">
+            <strong>더보기</strong>
+            <span class="material-icons">arrow_right_alt</span>
+          </a>
+          <div class="swiper-wrapper" id="giftSwiperWrapper"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-prev">
+          <span class="material-icons">arrow_back_ios</span>
+        </div>
+        <div class="swiper-next">
+          <span class="material-icons">arrow_forward_ios</span>
+        </div>
+      </section>
+    </div>
+    <!-- 장바구니 모달 -->
+    <%- include('components/modal_cart.html') -%>
+    <!-- footer -->
+    <%- include('components/footer.html') -%>
+    <!-- top-btn -->
+    <%- include('components/totop.html') -%>
+    <script src="/assets/js/scroll_top.js"></script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <script>
+      window.onload = async () => {
+        try {
+          const products = await getProducts();
+          // 각 itemBox에 상품 목록 표시
+          displayProductList(products, 'pickItemBox', isCoffeeCategory);
+          displayProductsByTaste(products, '블렌드', 'blendItemBox');
+          displayOriginItems(products, '아프리카', 'africa-origin');
+          displayOriginItems(products, '아시아/태평양', 'asia-origin');
+          displayOriginItems(products, '중남미', 'latin-america-origin');
+          displayGiftProducts(products);
+
+          // 탭 클릭 이벤트 처리
+          const tabLabels = document.querySelectorAll('.tab-label');
+          const defaultTab = document.querySelector('.tab-label.on input');
+          const defaultTaste = defaultTab.getAttribute('data-taste');
+          let isTabClicked = false;
+
+          tabLabels.forEach((label) => {
+            const input = label.querySelector('input');
+            const taste = input.getAttribute('data-taste');
+
+            // 상품 표시 조건 변경
+            label.addEventListener('click', (event) => {
+              const itemBoxId = taste === '블렌드' ? 'blendItemBox' : 'pickItemBox';
+
+              // 해당 맛에 해당하는 상품을 해당 박스에 표시
+              displayProductsByTaste(products, taste, itemBoxId);
+
+              event.preventDefault();
+
+              // 모든 탭에서 "on" 클래스 제거
+              tabLabels.forEach((tabLabel) => {
+                tabLabel.classList.remove('on');
+              });
+              // 클릭한 탭에 "on" 클래스 추가
+              label.classList.add('on');
+
+              isTabClicked = true; // 탭의 클릭여부 확인
+            });
+
+            // input의 변경 이벤트 처리
+            input.addEventListener('change', () => {
+              updateTabState(label, input);
+            });
+
+            // 초기 탭 상태 업데이트
+            updateTabState(label, input);
+          });
+
+          // 아무 탭도 클릭되지 않은 경우, 기본 탭에 해당하는 맛의 상품을 표시
+          if (!isTabClicked) {
+            const itemBoxId = defaultTaste === '블렌드' ? 'blendItemBox' : 'pickItemBox';
+            displayProductsByTaste(products, defaultTaste, itemBoxId);
+          }
+
+          // 확인 버튼 클릭 이벤트 처리(장바구니 넣기, 장바구니 이동)
+          const confirmBtns = document.querySelectorAll('.btn-confirm');
+          confirmBtns.forEach((confirmBtn) => {
+            confirmBtn.addEventListener('click', () => {
+              handleConfirmBtnClick(confirmBtn);
+            });
+          });
+
+          // 취소 버튼 클릭 이벤트 처리(장바구니 모달 닫기, 쇼핑 계속)
+          const cancelBtns = document.querySelectorAll('.btn-cancel');
+          cancelBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+              handleCancelBtnClick(btn);
+            });
+          });
+
+          // 배경 클릭 이벤트 처리(장바구니 모달 닫기)
+          const cartBackground = document.getElementById('cartBackground');
+          cartBackground.addEventListener('click', () => {
+            handleCartBackgroundClick();
+          });
+
+          // Gift Swiper 초기 셋팅
+          new Swiper('.gift-swiper', {
+            slidesPerView: 3,
+            spaceBetween: 10,
+            centeredSlides: 1,
+            loop: true,
+            autoplay: {
+              delay: 5000,
+            },
+            pagination: {
+              el: '.gift .swiper-pagination',
+              clickable: true,
+            },
+            navigation: {
+              prevEl: '.gift .swiper-prev',
+              nextEl: '.gift .swiper-next',
+            },
+          });
+        } catch (error) {
+          console.error('오류가 발생했습니다:', error);
+        }
+      };
+    </script>
+  </body>
+</html>
